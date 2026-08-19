@@ -1,0 +1,144 @@
+<?php
+session_start();
+$host = "localhost";
+$user = "root";
+$password = "";
+$db = "login1";
+$conn=new mysqli($host,$user,$password,$db);
+if($conn->connect_error){
+echo "erooro".$conn->connect_error;
+}
+  $insertQuery=$conn->prepare("SELECT name,password,course FROM user WHERE email=?");
+     $insertQuery->bind_param("s",$email);
+     $insertQuery->execute();
+    $result=$insertQuery->get_result();
+    if($result->num_rows>0){
+        $row=$result->fetch_assoc();
+         $_SESSION['user']=$row['name'];
+    }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVA TUTORIAL</title>
+    <link rel="stylesheet" href="design.css">
+</head>
+<body style="background: whitesmoke;">
+
+  <div id="box">
+    <ul style="margin: 0px;">
+        <a href="index.html" class="a"><li>Home</li></a>
+      <a href="course.html" class="a">   <li>Course</li></a>
+        <a href="signUp.html" class="a"> <li>Registeration</li></a>
+         <a href="login1.html" class="a"> <li>Login</li></a>
+        <a href="contact.html" class="a"> <li>Contact Us</li></a>
+    </ul>
+    </div>
+
+    <div>
+        
+    <h1 id="head">WELCOME <?php echo $_SESSION['user'] ?>!! </h1>
+    </div>
+    <video id="video" controls  src="img/15406850_1920_1080_25fps.mp4"></video>
+
+    <h1 style="text-align: center;padding: 50px; color: #5656d7;">WANT TO LEARN MORE? ENROLL THE COURSE</h1>
+
+
+     <div style="display: flex; justify-content: space-between;">
+        <div class="course">
+            <img src="img/imagec.png"  style="width: 100%; height: 200px;"  alt="oops!!can't load">
+            <p>
+               This course is for beginers to learn a lot about the C program which is considered as the mother language for all the programing language.
+               This course will help you to understand the basic to advanced concept on C  
+            </p>
+          
+            <button onclick="window.location.href='signUp.html';" id="re">REGISTER NOW!</button>
+        </div>
+        <div class="course">
+              <img src="img/imageja.png"  style="width: 100%; height: 200px;"  alt="oops!!can't load">
+            <p>
+                This course is for beginers to learn a lot about the C program which is considered as the mother language for all the programing language.
+               This course will help you to understand the basic to advanced concept on C
+            </p>
+            
+             <button onclick="window.location.href='signUp.html';" id="re">REGISTER NOW!</button>
+
+        </div>
+        <div class="course">
+              <img src="img/image5.png"  style="width: 100%; height: 200px;"  alt="oops!!can't load">
+            <p>
+                This course is for beginers to learn a lot about the C program which is considered as the mother language for all the programing language.
+               This course will help you to understand the basic to advanced concept on C
+            </p>
+
+        <button onclick="window.location.href='signUp.html';" id="re">REGISTER NOW!</button>
+
+        </div>
+    </div>
+          </div>
+
+<button class="b" onclick="window.location.href='course.html';" >  Load More </button>
+
+ <div class="c1">
+            <h1 style="text-align: center;color: #5656d7;padding: 50px;">Community experts</h1>
+        </div>
+        <div class="c2">
+            <div class="c3">
+                <img src="img/image2.png" alt="no image" >
+                <h2>Mr.Doni</h2>
+                <p>The Automated Process For Your Study Tasks.</p>
+            </div>
+            <div class="c3">
+                <img src="img/image2.png" alt="no image" >
+                <h2>Mr.Jeberson</h2>
+                <p>The Automated Process For Your Study Tasks.</p>
+            </div>
+            <div class="c3">
+                <img src="img/image2.png" alt="no image" >
+                <h2>Mr.Edison</h2>
+                <p>The Automated Process For Your Study Tasks.</p>
+            </div>
+            <div class="c3">
+                <img src="img/image2.png" alt="mo image" >
+                <h2>Mr.Vishnu</h2>
+                <p>The Automated Process For Your Study Tasks.</p>
+            </div>
+        </div>
+    </div>
+
+
+      <div style="background-color: rgb(68, 114, 221);text-align: center;height: 450px;">
+          <div class="l">
+            <div class="l2">
+               <li><h2>Course</h2></li>
+               <p>Build skills with course certificates and degree online from world class university and company</p>
+            </div>
+             <div class="l1">
+                <h2>Our solutions</h2>
+                 <li>Design & creatives</li>
+                 <li>Telecommunication</li>
+                 <li>Programing</li>
+                 <li>Architecture</li>
+             </div>
+              <div class="l1">
+                    <h2>Support</h2>
+                 <li>Design & creatives</li>
+                 <li>Telecommunication</li>
+                 <li>Programing</li>
+                 <li>Architecture</li>
+              </div>
+               <div class="l1" >
+                    <h2>Company</h2>
+                 <li>Design & creatives</li>
+                 <li>Telecommunication</li>
+                 <li>Programing</li>
+                 <li>Architecture</li>
+               </div>
+          </div>
+           <p style="color: white;position: relative;top: 50px;">Email:abcde@gmail.com||Phone:9287474664</p>
+          </div>
+</body>
+</html>
