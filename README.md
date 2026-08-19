@@ -1,2 +1,2 @@
-# Doni
+# Online course reservstion system
 Project 
